@@ -30,7 +30,7 @@ static int pesquisa(const char *arg, const char *raiz, const char *path) {
                 strcat(caminho, "/");
                 strcat(caminho, dp->d_name);
                 stat(caminho, &informacao);
-                (void) printf("Achou o arquivo: %s\nTipo: %d\nTamanho: %ld bytes\nNumero de blocos: %ld\nTamanho do bloco: %ld\n", caminho, dp->d_type, informacao.st_size, informacao.st_blocks, informacao.st_blksize);
+                (void) printf("Achou o arquivo: %s\nTipo: %d\nTamanho: %ld bytes\nTamanho fisico: %ld bytes\nNumero de blocos: %ld\nTamanho do bloco: %ld\n", caminho, dp->d_type, informacao.st_size, informacao.st_blocks * 512, informacao.st_blocks, informacao.st_blksize);
                 //Tamanho
                 //Tamanho do bloco
                 //Quantidade do bloco
