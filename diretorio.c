@@ -72,6 +72,7 @@ int main(int argc, char *argv[]) {
         return ( -1);
     }
     for (i = 1; i < argc; i++)
-        pesquisa(argv[i], ".", ".");
+        if (!pesquisa(argv[i], ".", "."))
+            printf("Nao encontrou nada\n");
     return (0);
 }
