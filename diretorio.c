@@ -13,7 +13,7 @@ static int pesquisa(const char *arg, const char *raiz, const char *path) {
     struct dirent *dp;
     int achou = 0;
     if ((dirpont = opendir(path)) == NULL) {
-        perror("nao pode abrir\n\n");
+        perror("Nao pode abrir\n\n");
         return achou;
     }
     do {
@@ -44,6 +44,7 @@ static int pesquisa(const char *arg, const char *raiz, const char *path) {
                 strcat(caminho, path);
                 strcat(caminho, "/");
                 strcat(caminho, dp->d_name);
+                (void) printf("%s\n", caminho);
                 if (pesquisa(arg, raiz, caminho) == 1) {
                     return 1;
                 }
@@ -52,6 +53,7 @@ static int pesquisa(const char *arg, const char *raiz, const char *path) {
                 continue;
         }
         if (achou == 0) {
+            (void) closedir(dirpont);
             return achou;
         }
     } while (dp != NULL);
